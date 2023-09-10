@@ -86,19 +86,19 @@ function generatePassword() {
         var keys = [];
 
     if (lowercase) {
-        keys = keys.concat(charTypes.lowercaseArr);
+        keys = keys.concat(lowercaseArr);
     }
 
     if (uppercase) {
-        keys = keys.concat(charTypes.uppercaseArr);
+        keys = keys.concat(uppercaseArr);
     }
 
     if (numeric) {
-        keys = keys.concat(charTypes.numericArr);
+        keys = keys.concat(numericArr);
     }
 
     if (specChar) {
-        keys = keys.concat(charTypes.specialArr);
+        keys = keys.concat(specialArr);
     }
 
     for (var i = 0; i < passwordLength; i++) {
