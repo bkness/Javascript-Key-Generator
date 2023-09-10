@@ -4,10 +4,10 @@ var generateBtn = document.querySelector("#generate");
 // Get references to the #generate element
 // Creating arrays to choose from after prompts are selected
 
-// var lowercaseArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-// var uppercaseArr = ["A", "B", "C", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-// var numericArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-// var specialArr = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
+var lowercaseArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var uppercaseArr = ["A", "B", "C", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var numericArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+var specialArr = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
 
 // Write password to the #password input
 function writePassword() {
@@ -33,12 +33,12 @@ function generatePassword() {
     var password = "";
     var charTypes = [];
  
-    charTypes = {
-        lowercaseArr: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
-        uppercaseArr: ["A", "B", "C", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
-        numericArr: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-        specialArr: ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
-    }
+    // charTypes = {
+    //     lower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+    //     upper: ["A", "B", "C", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+    //     num: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    //     spec: ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
+    
     
     // Creating a constant variable so we can make a prompt and create our if statement
     // Now the user sees instructions on how to continue
@@ -50,7 +50,7 @@ function generatePassword() {
 
     if (passwordLength < 8 || passwordLength > 128) {
         // if password legnth doesnt meet requirements they get an alert
-        alert('Please choose the correct length foor your password');
+        alert('Please choose the correct length for your password');
         return;
     }
 
@@ -83,10 +83,34 @@ function generatePassword() {
     // WHEN the password is generated
     // THEN the password is either displayed in an alert or written to the page
 
-   
+        var keys = [];
 
+    if (lowercase) {
+        keys = keys.concat(charTypes.lowercaseArr);
+    }
 
+    if (uppercase) {
+        keys = keys.concat(charTypes.uppercaseArr);
+    }
 
+    if (numeric) {
+        keys = keys.concat(charTypes.numericArr);
+    }
 
+    if (specChar) {
+        keys = keys.concat(charTypes.specialArr);
+    }
 
+    for (var i = 0; i < passwordLength; i++) {
+        var randomIndex = Math.floor(Math.random() * keys.length);
+        password += keys[randomIndex];
+    }
+
+    return password;
 }
+
+
+
+
+
+
