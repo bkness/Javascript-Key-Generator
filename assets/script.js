@@ -72,7 +72,7 @@ function generatePassword() {
     //   Added an if statement so we can store the users choice as a boolean 
     // and select the appropriate array for the loop
 
-    if (lowercase === false && uppercase === false && numeric === false === specChar === false) {
+    if (lowercase === false && uppercase === false && numeric === false && specChar === false) {
         // Creates an alert if all four variable return false
         alert('One type must be chosen!');
         return "";
