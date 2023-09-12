@@ -3,3 +3,4 @@ With my third week of javascript under way, this is a showcase on some of the sk
 Here is a screenshot and a working deployed link
 https://bkness.github.io/javascript-key-generator/
 
+![_Users_brandonkelly_bootcamp_homeworks_javascript-key-generator_index html](https://github.com/bkness/javascript-key-generator/assets/123907755/f3a45d6d-21fd-49a0-b1ba-689b3bfc26a5)
