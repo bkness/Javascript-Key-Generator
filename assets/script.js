@@ -9,6 +9,10 @@ var uppercaseArr = ["A", "B", "C", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
 var numericArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var specialArr = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
 
+lowercaseString = lowercaseArr.join
+
+
+
 // Write password to the #password input
 function writePassword() {
     var password = generatePassword();
@@ -38,7 +42,7 @@ function generatePassword() {
     //     upper: ["A", "B", "C", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
     //     num: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
     //     spec: ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
-    
+//}
     
     // Creating a constant variable so we can make a prompt and create our if statement
     // Now the user sees instructions on how to continue
@@ -70,7 +74,7 @@ function generatePassword() {
     // THEN my input should be validated and at least one character type should be selected
 
     //   Added an if statement so we can store the users choice as a boolean 
-    // and select the appropriate array for the loop
+    //   and select the appropriate array for the loop
 
     if (lowercase === false && uppercase === false && numeric === false && specChar === false) {
         // Creates an alert if all four variable return false
@@ -83,8 +87,10 @@ function generatePassword() {
     // WHEN the password is generated
     // THEN the password is either displayed in an alert or written to the page
 
+    // Created a variable we can store all of the users prompts in for our for loop
         var keys = [];
 
+    // I concatented every line accordingly to the users selection to get it ready for generation
     if (lowercase) {
         keys = keys.concat(lowercaseArr);
     }
@@ -101,11 +107,17 @@ function generatePassword() {
         keys = keys.concat(specialArr);
     }
 
+    // here we created our loop using the var which now contains the selected values
+    // index would be out if statements based off our key arrays.
+    // the index will climb up with i++ and down with i--
     for (var i = 0; i < passwordLength; i++) {
+        // using the math floor and math random plus our array length we can randomize a selection    
         var randomIndex = Math.floor(Math.random() * keys.length);
+        // using an operator += to specify that the password will be our math floor and math random result
         password += keys[randomIndex];
     }
 
+    // returns our resulted password selection
     return password;
 }
 
